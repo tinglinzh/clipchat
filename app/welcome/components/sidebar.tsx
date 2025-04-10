@@ -1,23 +1,23 @@
 import type { ReactNode } from "react";
-import { SearchBar, SearchBarProps } from '@lobehub/ui';
-import { ActionIcon, Avatar, List, ListItemProps } from '@lobehub/ui';
+import { ActionIcon, Avatar, List, ListItemProps, SearchBar } from '@lobehub/ui';
 const { Item } = List
+
 // 保持函数组件形式，这样可以添加更多内容和逻辑
 const Sidebar = (): ReactNode => {
     const items: ListItemProps[] = [
         {
-            active: false,
-            avatar: <Avatar size={40} avatar={'😊'} />,
+            active: true,
+            avatar: <Avatar size={52} avatar={'😊'} />,
             date: Date.now(),
             description: 'Description 1',
-            title: 'Item 1',
+            title: 'Mary',
         },
         {
             active: false,
-            avatar: <Avatar size={40} avatar={'😊'} />,
+            avatar: <Avatar size={52} avatar={'😊'} />,
             date: Date.now(),
             description: 'Description 2',
-            title: 'Item 2',
+            title: 'Tom',
         },
     ];
     return (
@@ -25,7 +25,7 @@ const Sidebar = (): ReactNode => {
             <SearchBar className="w-full" type="block" placeholder="Search" enableShortKey spotlight />
             <div className="flex-1 flex-col">
                 {items.map((item, index) => (
-                    <Item className="rounded-lg !py-2" key={index} {...item} />
+                    <Item className="rounded-lg !py-2 !px-1" key={index} {...item} />
                 ))}
             </div>
         </div>
