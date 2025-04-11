@@ -20,6 +20,9 @@ importers:
       add:
         specifier: ^2.0.6
         version: 2.0.6
+      dayjs:
+        specifier: ^1.11.13
+        version: 1.11.13
       isbot:
         specifier: ^5.1.17
         version: 5.1.25

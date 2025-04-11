@@ -1,6 +1,6 @@
 import { Layout, ThemeProvider } from '@lobehub/ui';
 import Sidebar from './components/sidebar';
-import ChatContent from './components/chat-content';
+import Chat from './components/chat';
 export function Welcome() {
   return (
     <ThemeProvider themeMode='dark' >
@@ -12,7 +12,7 @@ export function Welcome() {
               <Sidebar />
             }
           >
-            <ChatContent />
+            <Chat />
           </Layout>
         </div>
       </main>
