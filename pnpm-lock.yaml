@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@lobehub/fluent-emoji':
+        specifier: ^1.2.0
+        version: 1.2.0(@babel/core@7.26.10)(@types/react@19.1.0)(acorn@8.14.1)(antd@5.24.6(date-fns@4.1.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@lobehub/ui':
         specifier: ^1.170.8
         version: 1.170.8(@babel/core@7.26.10)(@types/react@19.1.0)(acorn@8.14.1)(antd@5.24.6(date-fns@4.1.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -26,16 +29,31 @@ importers:
       isbot:
         specifier: ^5.1.17
         version: 5.1.25
+      motion:
+        specifier: ^12.6.5
+        version: 12.6.5(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react:
         specifier: ^19.0.0
         version: 19.1.0
       react-dom:
         specifier: ^19.0.0
         version: 19.1.0(react@19.1.0)
+      react-draggable:
+        specifier: ^4.4.6
+        version: 4.4.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react-router:
         specifier: ^7.5.0
         version: 7.5.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      wavesurfer-react:
+        specifier: ^3.0.4
+        version: 3.0.4(react@19.1.0)(wavesurfer.js@7.9.4)
+      wavesurfer.js:
+        specifier: ^7.9.4
+        version: 7.9.4
     devDependencies:
+      '@iconify/react':
+        specifier: ^5.2.1
+        version: 5.2.1(react@19.1.0)
       '@react-router/dev':
         specifier: ^7.5.0
         version: 7.5.0(@react-router/serve@7.5.0(react-router@7.5.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(typescript@5.8.3))(@types/node@20.17.30)(babel-plugin-macros@3.1.0)(lightningcss@1.29.2)(react-router@7.5.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(typescript@5.8.3)(vite@5.4.17(@types/node@20.17.30)(lightningcss@1.29.2))
@@ -552,6 +570,11 @@ packages:
     peerDependencies:
       react: ^16 || ^17 || ^18 || ^19
       react-dom: ^16 || ^17 || ^18 || ^19
+
+  '@iconify/react@5.2.1':
+    resolution: {integrity: sha512-37GDR3fYDZmnmUn9RagyaX+zca24jfVOMY8E1IXTqJuE8pxNtN51KWPQe3VODOWvuUurq7q9uUu3CFrpqj5Iqg==}
+    peerDependencies:
+      react: '>=16'
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -2270,6 +2293,20 @@ packages:
       react-dom:
         optional: true
 
+  framer-motion@12.6.5:
+    resolution: {integrity: sha512-MKvnWov0paNjvRJuIy6x418w23tFqRfS6CXHhZrCiSEpXVlo/F+usr8v4/3G6O0u7CpsaO1qop+v4Ip7PRCBqQ==}
+    peerDependencies:
+      '@emotion/is-prop-valid': '*'
+      react: ^18.0.0 || ^19.0.0
+      react-dom: ^18.0.0 || ^19.0.0
+    peerDependenciesMeta:
+      '@emotion/is-prop-valid':
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
+
   fresh@0.5.2:
     resolution: {integrity: sha512-zJ2mQYM18rEFOudeV4GShTGIQ7RbzA7ozbU9I/XBpm7kqgMywgmylMwXHxZJmkVoYkna9d2pVXVXPdYTP9ej8Q==}
     engines: {node: '>= 0.6'}
@@ -2933,11 +2970,31 @@ packages:
   motion-dom@12.6.3:
     resolution: {integrity: sha512-gRY08RjcnzgFYLemUZ1lo/e9RkBxR+6d4BRvoeZDSeArG4XQXERSPapKl3LNQRu22Sndjf1h+iavgY0O4NrYqA==}
 
+  motion-dom@12.6.5:
+    resolution: {integrity: sha512-jpM9TQLXzYMWMJ7Ec7sAj0iis8oIuu6WvjI3yNKJLdrZyrsI/b2cRInDVL8dCl683zQQq19DpL9cSMP+k8T1NA==}
+
   motion-utils@11.18.1:
     resolution: {integrity: sha512-49Kt+HKjtbJKLtgO/LKj9Ld+6vw9BjH5d9sc40R/kVyH8GLAXgT42M2NnuPcJNuA3s9ZfZBUcwIgpmZWGEE+hA==}
 
   motion-utils@12.6.3:
     resolution: {integrity: sha512-R/b3Ia2VxtTNZ4LTEO5pKYau1OUNHOuUfxuP0WFCTDYdHkeTBR9UtxR1cc8mDmKr8PEhmmfnTKGz3rSMjNRoRg==}
+
+  motion-utils@12.6.5:
+    resolution: {integrity: sha512-IsOeKsOF+FWBhxQEDFBO6ZYC8/jlidmVbbLpe9/lXSA9j9kzGIMUuIBx2SZY+0reAS0DjZZ1i7dJp4NHrjocPw==}
+
+  motion@12.6.5:
+    resolution: {integrity: sha512-X3IIy76nxyk4I87xQEm5Ah8ojQ4qisd+/H592eXF14ha+xqpbDJcWOSf9PEKCOCC0K4PN/0UBaz+MvSQUkIeXQ==}
+    peerDependencies:
+      '@emotion/is-prop-valid': '*'
+      react: ^18.0.0 || ^19.0.0
+      react-dom: ^18.0.0 || ^19.0.0
+    peerDependenciesMeta:
+      '@emotion/is-prop-valid':
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
 
   ms@2.0.0:
     resolution: {integrity: sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A==}
@@ -4088,6 +4145,15 @@ packages:
   warning@3.0.0:
     resolution: {integrity: sha512-jMBt6pUrKn5I+OGgtQ4YZLdhIeJmObddh6CsibPxyQ5yPZm1XExSyzC1LCNX7BzhxWgiHmizBWJTHJIjMjTQYQ==}
 
+  wavesurfer-react@3.0.4:
+    resolution: {integrity: sha512-Eq+9ihd28UhX23ZVRrg9llpfo4ejUbYZ8oMEx+XwoymHiwLw44GwYVAo+iUPl9W8aVxuoncBKjbslukvqv0kFw==}
+    peerDependencies:
+      react: ^16 || ^17 || ^18 || ^19
+      wavesurfer.js: ^7
+
+  wavesurfer.js@7.9.4:
+    resolution: {integrity: sha512-ahOMvrOKo5jULNnXq8Ske8v/ZStoNNTDjYohvgLNerUFuh+6fJSt7wlxFesEXmnlcTnjMy5/tIzhn9KusjO6bg==}
+
   web-namespaces@2.0.1:
     resolution: {integrity: sha512-bKr1DkiNa2krS7qxNtdrtHAmzuYGFQLiQ13TsorsdT6ULTkPLKuu5+GsFpDlg6JFjUTwX2DyhMPG2be8uPrqsQ==}
 
@@ -4671,6 +4737,11 @@ snapshots:
       giscus: 1.6.0
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
+
+  '@iconify/react@5.2.1(react@19.1.0)':
+    dependencies:
+      '@iconify/types': 2.0.0
+      react: 19.1.0
 
   '@iconify/types@2.0.0': {}
 
@@ -6656,6 +6727,15 @@ snapshots:
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
 
+  framer-motion@12.6.5(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+    dependencies:
+      motion-dom: 12.6.5
+      motion-utils: 12.6.5
+      tslib: 2.8.1
+    optionalDependencies:
+      react: 19.1.0
+      react-dom: 19.1.0(react@19.1.0)
+
   fresh@0.5.2: {}
 
   fs-extra@10.1.0:
@@ -7684,9 +7764,23 @@ snapshots:
     dependencies:
       motion-utils: 12.6.3
 
+  motion-dom@12.6.5:
+    dependencies:
+      motion-utils: 12.6.5
+
   motion-utils@11.18.1: {}
 
   motion-utils@12.6.3: {}
+
+  motion-utils@12.6.5: {}
+
+  motion@12.6.5(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+    dependencies:
+      framer-motion: 12.6.5(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      tslib: 2.8.1
+    optionalDependencies:
+      react: 19.1.0
+      react-dom: 19.1.0(react@19.1.0)
 
   ms@2.0.0: {}
 
@@ -9036,6 +9130,13 @@ snapshots:
   warning@3.0.0:
     dependencies:
       loose-envify: 1.4.0
+
+  wavesurfer-react@3.0.4(react@19.1.0)(wavesurfer.js@7.9.4):
+    dependencies:
+      react: 19.1.0
+      wavesurfer.js: 7.9.4
+
+  wavesurfer.js@7.9.4: {}
 
   web-namespaces@2.0.1: {}
 
