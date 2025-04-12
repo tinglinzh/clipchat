@@ -1,23 +1,30 @@
-import { ReactNode } from "react";
-import { Avatar, ListItemProps, Image, ChatItem as Item } from "@lobehub/ui";
+import { memo, ReactNode } from "react";
+import { Avatar, Image } from "@lobehub/ui";
 import { MessageType } from "./chat-content";
 import { ChatMessage } from "./chat-list";
 import dayjs from "dayjs";
 import relativeTime from 'dayjs/plugin/relativeTime'
+import AudioWaveform from "~/components/audio-waveform"
+
 dayjs.extend(relativeTime)
-const ChatItem = (props: ChatMessage) => {
-    console.log(props);
+const ChatItem = memo((props: ChatMessage): ReactNode => {
+    const { avatar, role, time, content, type } = props;
+
+    console.log("ChatItem rendered:", props); // ✅ 只有真正变更时才触发
+
     return (
-        <div className={`w-4/5 flex mb-4 items-start ${props.role === 'oneself' ? 'flex-row-reverse ml-auto' : ''}`}>
-            <Avatar className={props.role === 'oneself' ? '!ml-3' : '!mr-3'} src={props.avatar} size={48} />
+        <div className={`w-4/5 flex mb-4 items-start ${role === 'oneself' ? 'flex-row-reverse ml-auto' : ''}`}>
+            <Avatar className={role === 'oneself' ? '!ml-3' : '!mr-3'} src={avatar} size={42} />
             <div className='mt-2 group relative pb-2'>
-                <MessageExtra content={props.content} type={props.type} role={props.role} />
-                <div className="text-[#c0c0c0] absolute -bottom-3 left-1 hidden  group-hover:block text-[12px] mt-2">{dayjs(props.time).fromNow()}</div>
+                <MessageExtra content={content} type={type} role={role} />
+                <div className="text-[#c0c0c0] absolute -bottom-3 left-1 hidden group-hover:block text-[12px] mt-2">
+                    {dayjs(time).fromNow()}
+                </div>
             </div>
-        </div >
-    )
-}
-const MessageExtra = ({ content, type, role, className }: { content: string, type: MessageType, role: 'oneself' | 'other', className?: string }) => {
+        </div>
+    );
+});
+const MessageExtra = ({ content, type, role, className = '' }: { content: string, type: MessageType, role: 'oneself' | 'other', className?: string }) => {
     switch (type) {
         case MessageType.text:
         case MessageType.markdown:
@@ -39,7 +46,7 @@ const MessageExtra = ({ content, type, role, className }: { content: string, typ
             );
 
         case MessageType.audio:
-            return <audio controls src={content} className="w-full" />;
+            return <AudioWaveform url={content} />
 
         case MessageType.video:
             return <video controls src={content} className="w-full rounded-md" />;
@@ -64,6 +71,4 @@ const MessageExtra = ({ content, type, role, className }: { content: string, typ
             return <div className="text-gray-500 italic">Unsupported message type</div>;
     }
 }
-
-
 export default ChatItem

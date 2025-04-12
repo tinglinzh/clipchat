@@ -1,8 +1,8 @@
 import { DraggablePanel, DraggablePanelProps, ActionsBar, ChatListProps, EmojiPicker } from '@lobehub/ui';
-import { ReactNode, useState } from 'react';
-import ChatItem from './chat-item';
+import { ReactNode, use, useState } from 'react';
+import { Icon } from "@iconify/react";
 // import { ChatItem } from '@lobehub/ui';
-import { ChatList, ChatMessageList } from './chat-list';
+import { ChatList, ChatMessage, ChatMessageList } from './chat-list';
 import { ChatInputActionBar, ChatInputArea, ChatSendButton, TokenTag } from '@lobehub/ui/chat';
 export enum MessageType {
     text = 'text',
@@ -23,7 +23,7 @@ export enum MessageType {
 }
 const data: ChatMessageList[] = [
     {
-        id: '1',
+        id: '22',
         date: '2025-4-11',
         chatList: [{
             content: 'dayjs 如何使用 fromNow',
@@ -37,7 +37,7 @@ const data: ChatMessageList[] = [
         {
             content: '这样使用...',
             time: '2025-4-11 09:00:00',
-            id: '1',
+            id: '4',
             avatar: 'https://avatars.githubusercontent.com/u/17870709?v=4',
             role: 'other',
             type: MessageType.text,
@@ -46,27 +46,48 @@ const data: ChatMessageList[] = [
         {
             content: 'https://paper-clip.space/images/project/ai-greatwall.png',
             time: '2025-4-11 09:10:00',
-            id: '1',
+            id: '7',
             avatar: 'https://paper-clip.space/images/avatar.png',
             role: 'oneself',
             type: MessageType.image,
             userId: '23'
-        },],
+        }, {
+            content: '/public/1.mp3',
+            time: '2025-4-11 09:10:00',
+            id: '5',
+            avatar: 'https://paper-clip.space/images/avatar.png',
+            role: 'oneself',
+            type: MessageType.audio,
+            userId: '23'
+        }],
     },
 ];
 const ChatContent = (): ReactNode => {
     const [inputVal, setInputVal] = useState('');
+    const [chatList, setChatList] = useState<ChatMessageList[]>(data)
 
     function handleSend() {
     }
+
+
+    function handleDelete(message: ChatMessage) {
+        const newList = chatList.map((item) => {
+            return {
+                ...item,
+                chatList: item.chatList.filter((msg) => msg.id !== message.id),
+            };
+        });
+        setChatList(newList);
+    }
     function handleSelectEmoji(emoji: string) {
-        setInputVal(inputVal + emoji);
+        setInputVal((val) => val + emoji);
     }
     return (
         <div className='flex flex-col h-full pt-[64px]'>
             <div className='flex-1 overflow-y-auto'>
                 <ChatList
-                    list={data}
+                    list={chatList}
+                    onDelete={handleDelete}
                 />
             </div>
             <DraggablePanel placement='bottom' maxHeight={300}>
@@ -79,8 +100,8 @@ const ChatContent = (): ReactNode => {
                         <ChatInputActionBar
                             leftAddons={
                                 <>
-                                    <EmojiPicker size={32} className=' hover:!shadow-none' onChange={(emoji) => handleSelectEmoji(emoji)} />
-                                    <TokenTag maxValue={5000} value={1000} />
+                                    <EmojiPicker lang='zh' size={32} className=' hover:!shadow-none' onChange={(emoji) => handleSelectEmoji(emoji)} />
+                                    <Icon icon="icon-park:clear" onClick={() => setInputVal('')} className='cursor-pointer' fontSize={24} />
                                 </>
                             }
                         />
